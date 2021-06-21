@@ -20,4 +20,21 @@ void main () {
   double firstResult;
   firstResult = addNumbers(1, 1);
   print(firstResult + 1.5);
+
+// based on a bool value or expression.
+  var isLoggedIn = true; 
+  if(isLoggedIn) {
+    print("User logged in");
+  }
+
+  var userName = 'Dort';
+  var password = "password";
+  var age = 31;
+  if(userName == "Bort" && (password == 'password' || age > 20)){
+    print("logged in");
+  } else if(isLoggedIn) {
+    print("Overruled!");
+  } else {
+    print("Login failed");
+  }
 }
