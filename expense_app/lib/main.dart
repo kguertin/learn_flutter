@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import './transaction.dart';
 void main() => runApp(MyApp());
@@ -44,10 +45,13 @@ class MyHomePage extends StatelessWidget {
                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                  decoration: BoxDecoration(border: Border.all(color: Colors.purple, width: 2)),
                  padding: EdgeInsets.all(10),
-                 child: Text(tx.amount.toString(), style: TextStyle(
-                   fontWeight: FontWeight.bold, 
-                   fontSize: 20, 
-                   color: Colors.purple)
+                 child: Text(
+                    '\$${tx.amount}', 
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, 
+                      fontSize: 20, 
+                      color: Colors.purple
+                      )
                    )
                  ),
                  Column(
@@ -61,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                     Text(
-                      tx.date.toString(),
+                      DateFormat.yMMMd().format(tx.date),
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.grey
