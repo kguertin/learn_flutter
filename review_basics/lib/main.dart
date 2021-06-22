@@ -30,8 +30,19 @@ class _DemoAppState extends State<DemoApp> {
 
 @override
 Widget build(BuildContext context) {
-  return MaterialApp(home: Scaffold(
-    appBar: AppBar(title: Text("Demo Flutter App"),),
-    body: Center(child: Column(children: <Widget>[TextDisplay(_textData[_textIndex],), TextControl(_changeText),],),),),);
+  return MaterialApp(
+    home: Scaffold(
+    appBar: AppBar(
+      title: Text("Demo Flutter App"),
+      ),
+    body: Center(
+      child: Column(
+        children: <Widget>[
+          TextDisplay(_textData[_textIndex]), 
+          TextControl(_changeText)]
+        ),
+      ),
+    ),
+  );
 }
 }
