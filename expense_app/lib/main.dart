@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './widgets/userTransactions.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -30,6 +32,7 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
+          UserTransactions(),
         ],
       ),
     );
