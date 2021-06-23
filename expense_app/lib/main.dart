@@ -20,6 +20,12 @@ class MyHomePage extends StatelessWidget {
     Transaction(id: 't2', title: 'Weekly Groceries', amount: 16.54, date: DateTime.now())
   ];
 
+  // String titleInput;
+  // String amountInput;
+
+  final titleController = TextEditingController();
+  final ammountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +33,6 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -38,14 +43,42 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-         Column(children: transactions.map((tx){
-           return Card(child: Row(
-             children: <Widget>[
-               Container(
-                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                 decoration: BoxDecoration(border: Border.all(color: Colors.purple, width: 2)),
-                 padding: EdgeInsets.all(10),
-                 child: Text(
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: "Title"),
+                    controller: titleController,
+                    // onChanged: (value) => titleInput = value,
+                    ),
+                  TextField(
+                    decoration: InputDecoration(labelText: "Price"),
+                    controller: ammountController,
+                    // onChanged: (value) => amountInput = value, 
+                    ),
+                  FlatButton(
+                    child: Text('Add Transaction'), 
+                    onPressed: () {
+                        print(titleController.text);
+                      }, 
+                    textColor: Colors.purple,
+                    )
+                ],
+              ),
+            ),
+          ),
+          Column(children: transactions.map((tx){
+            return Card(child: Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  decoration: BoxDecoration(border: Border.all(color: Colors.purple, width: 2)),
+                  padding: EdgeInsets.all(10),
+                  child: Text(
                     '\$${tx.amount}', 
                     style: TextStyle(
                       fontWeight: FontWeight.bold, 
