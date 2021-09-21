@@ -20,8 +20,11 @@ class MyApp extends StatelessWidget {
             headline1: TextStyle(
                 fontSize: 20, fontFamily: 'RobotoCondensed', fontWeight: FontWeight.bold)),
       ),
-      home: CategoriesScreen(),
-      routes: {'/category-meals': (ctx) => CategoryMealsScreen()},
+      initialRoute: '/',
+      routes: {
+        '/': (ctx) => CategoriesScreen(),
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
